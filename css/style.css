@@ -1,0 +1,108 @@
+/*Font Import*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
+
+
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing:border-box;
+	font-family:'Open-Sans', sans-serif;
+}
+body{
+	display:flex;
+	color:#000;
+}
+#container{
+	width:100vw;
+	height:100vh;
+	background-color:lightblue;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+#form-box{
+	width:450px;
+}
+fieldset{
+	padding:20px 32px;
+	border-radius:3px;
+	border:2px solid rgba(20,100,150);
+	height:auto;
+}
+legend{
+	padding:0px 10px;
+	font-weight:bold;
+}
+.form-group{
+	margin-bottom:25px;
+	position:relative;
+}
+.form-group i{
+	top:34px;
+	right:14px;
+	position:absolute;
+	visibility:hidden;
+}
+.form-group small{
+	position:absolute;
+	visibility:hidden;
+}
+label{
+	font-size:0.8em;
+}
+input{
+	width:100%;
+	margin:5px 0px;
+	border-radius:3px;
+	border:0.11em solid #333;	
+	padding:10px 15px;
+	outline:none;
+}
+.form-group.error input{
+	border:2px solid red;
+}
+.form-group.success input{
+	border:2px solid green;
+}
+.form-group.error i.fa-exclamation-circle{
+	color:red;
+	visibility:visible;
+}
+.form-group.success i.fa-check-circle{
+	color:green;
+	visibility:visible;
+}
+.form-group.error small{
+	color:red;
+	visibility:visible;
+}
+#clear{
+	width:25%;
+	height:25px;
+	float:right;
+	background-color:rgba(200,90,15);
+	border-radius:3px;
+	margin-bottom:10px;
+	padding:0px;
+	color:#fff;
+	background-color:rgba(255,90,15);
+}
+#clear:hover{
+	border-color:#333;
+	color:#fff;
+	background-color:rgba(255,90,15);
+	font-weight:bolder;
+	letter-spacing:0.11em;
+}
+
+input[type=button]{
+	background-color:rgba(20,100,150,0.7);
+	cursor:pointer;
+}
+
+/* Media Queries */
+@media screen and (max-width: 465px){
+	#form-box{
+		width:80%;
+	}
+}

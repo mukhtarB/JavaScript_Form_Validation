@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang ="en uk">
+	<head>
+		<title>Javascript Form Validation</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport"  content="width=device-width, initial scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta http-equiv= "pragma" content="no-cache">
+		
+		<link href = "fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+		<link href ="css/style.css" rel="stylesheet" type = "text/css">
+		
+		
+	</head>
+	<body>
+		<div id = "container">
+			
+			<form method="" action="" id = "form-box">
+				<fieldset>
+					<legend>  Fill in the form below:  </legend>
+					<div class = "form-group">
+						<label for="name"> Username: </label>
+						<input type="text" placeholder="John Y. Doe" id="name" name ="" required />
+						<i class = "fa fa-check-circle" aria-hidden = "true"></i>
+						<i class = "fa fa-exclamation-circle" aria-hidden = "true"></i>
+						<small>Error Msg</small>
+					</div>
+					
+					<div class = "form-group">
+						<label for="email"> Name: </label>
+						<input type="email" placeholder="JohnYD@gmail.com" id="email" name ="" required />
+						<i class = "fa fa-check-circle" aria-hidden = "true"></i>
+						<i class = "fa fa-exclamation-circle" aria-hidden = "true"></i>
+						<small>Error Msg</small>
+					</div>
+					
+					<div class = "form-group">
+						<label for="password"> Password: </label>
+						<input type="text" placeholder="••••••" id="password" name ="" required />
+						<i class = "fa fa-check-circle" aria-hidden = "true"></i>
+						<i class = "fa fa-exclamation-circle" aria-hidden = "true"></i>
+						<small>Error Msg</small>
+					</div>
+					
+					<div class = "form-group">
+						<label for="pass_check"> Password Check: </label>
+						<input type="text" placeholder="••••••" id="pass_check" name ="" required />
+						<i class = "fa fa-check-circle" aria-hidden = "true"></i>
+						<i class = "fa fa-exclamation-circle" aria-hidden = "true"></i>
+						<small>Error Msg</small>
+					</div>
+				
+					<input type ="button" value ="clear" id ="clear"/>
+					<input type ="button" value ="submit" id ="submit"/>
+				</fieldset>
+			
+			</form>
+			
+		</div>
+	
+		
+		
+		
+		<script>
+			// script
+			var form = document.getElementById('form-box');
+			var username = document.getElementById('name');
+			var email = document.getElementById('email');
+			var password = document.getElementById('password');
+			var pass_check = document.getElementById('pass_check');
+			var submit = document.getElementById('submit')
+			
+			
+			
+			submit.addEventListener('click', function(e) {
+				e.preventDefault();	
+				checkFormInputs();
+			})
+			
+			
+			function checkFormInputs(){
+				//value of inputs (with trimed white spaces)
+				name_Value = username.value.trim();
+				email_Value = email.value.trim();
+				password_Value = password.value.trim();
+				pass_check_Value = pass_check.value.trim();
+				
+				
+				//Username
+				
+				if(name_Value === ''){
+					//add error class
+					setErrorFor(username, "Username cannot be blank")
+				}
+				else{
+					//add success class
+					setSuccessFor(username)
+				}
+				
+				//email
+				if(email_Value === ''){
+					//add error class
+					setErrorFor(email, "Email cannot be blank")
+				}
+				else if (!emailcheck(email_Value)){
+					setErrorFor(email, "Invalid email")
+				}
+				else{
+					//add error class
+					setSuccessFor(email)
+				}
+				
+				//password
+				if(password_Value === ''){
+					//add error class
+					setErrorFor(password, "Password cannot be blank")
+				}
+				else{
+					//add success class
+					setSuccessFor(password)
+				}
+				
+				//password check
+				if(pass_check_Value === ''){
+					//add error class
+					setErrorFor(pass_check, "Password cannot be blank")
+				}
+				else if(pass_check_Value !== password_Value){
+					//add error class
+					setErrorFor(pass_check, "Passwords don\'t match")
+				}
+				else{
+					//add success class
+					setSuccessFor(pass_check)
+				}
+			}
+			
+			function setErrorFor(input, msg){
+				var formGroup = input.parentElement; //grab parentEl
+				formGroup.className ='form-group error'; //add error class
+				
+				var small = formGroup.getElementsByTagName('small')[0]; //grab small tag
+				small.textContent = msg; //then add msg
+			}
+			
+			function setSuccessFor(input){
+				var formGroup = input.parentElement; //grab parentEl
+				formGroup.className = 'form-group success'; //add success class
+			}
+			
+			function emailcheck(email){
+				return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+			}
+			
+			
+			document.getElementById('clear').onclick = function (){
+				document.getElementById('name').value = null;
+				document.getElementById('email').value = null;
+				document.getElementById('password').value = null;
+				document.getElementById('pass_check').value = null;
+				
+				document.getElementById('name').parentElement.className = 'form-group';
+				document.getElementById('email').parentElement.className = 'form-group';
+				document.getElementById('password').parentElement.className = 'form-group';
+				document.getElementById('pass_check').parentElement.className = 'form-group';
+			}
+		</script>
+	</body>
+</html>
