@@ -9,7 +9,8 @@
 	font-family:'Open-Sans', sans-serif;
 }
 body{
-	background-color:lightblue;
+	display:flex;
+	color:#000;
 }
 #container{
 	width:100vw;
@@ -21,7 +22,8 @@ body{
 }
 #form-box{
 	width:450px;
-	height:80%;
+	text-align: left;
+	margin: auto;
 }
 fieldset{
 	padding:20px 32px;
