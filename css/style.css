@@ -9,17 +9,11 @@
 	font-family:'Open-Sans', sans-serif;
 }
 body{
-	display:flex;
-	color:#000;
-}
-#container{
-	width:100vw;
-	min-height:100vh;
-	background-color:lightblue;
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	padding:50px 10px;
+	display: flex;
+    color: black;
+    background: lightblue;
+    justify-content: center;
+    padding: 50px 0px;
 }
 #form-box{
 	width:450px;
