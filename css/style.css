@@ -14,11 +14,12 @@ body{
 }
 #container{
 	width:100vw;
-	height:100vh;
+	min-height:100vh;
 	background-color:lightblue;
 	display:flex;
 	justify-content:center;
 	align-items:center;
+	padding:50px 10px;
 }
 #form-box{
 	width:450px;
